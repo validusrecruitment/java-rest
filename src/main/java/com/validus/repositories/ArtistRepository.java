@@ -1,0 +1,14 @@
+package com.validus.repositories;
+
+import com.validus.domain.Artist;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
+
+
+//@RepositoryRestResource(collectionResourceRel = "artist", path="artist")
+public interface ArtistRepository extends CrudRepository<Artist, Long> {
+   List<Artist> findByName(@Param("name") String name);
+}

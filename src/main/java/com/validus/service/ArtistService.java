@@ -13,7 +13,7 @@ public interface ArtistService {
 
     Artist findArtist(long id);
 
-    Artist updateArtist(Artist artist);
+    Artist updateArtist(long id, Artist artist);
 
     void deleteById(long id);
 

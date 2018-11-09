@@ -4,6 +4,7 @@ import com.validus.repositories.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -26,8 +27,22 @@ public class AlbumServiceImpl implements AlbumService {
         return albumRepository.findById(id).orElse(null);
     }
 
+    /**
+     * Simplifying scenario for not going for partial updates.
+     * @param id
+     * @param album
+     * @return
+     */
     @Override
-    public Album updateAlbum(Album album) {
+    public Album updateAlbum(long id, Album album) {
+        Album updateAlbum = findAlbum(id);
+        updateAlbum.setName(album.getName());
+        updateAlbum.setYearReleased(album.getYearReleased());
+        updateAlbum.setArtists(album.getArtists());
+        updateAlbum.setSongs(album.getSongs());
+        updateAlbum.setCreated(album.getCreated());
+        updateAlbum.setLastModified(new Date(System.currentTimeMillis()));
+
         return albumRepository.save(album);
     }
 

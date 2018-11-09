@@ -35,6 +35,8 @@ public class AlbumController {
         return albumService.findAlbum(id);
     }
 
-
+    public  Album updateAlbum(@PathVariable long id, @RequestBody Album album) {
+            return albumService.updateAlbum(id, album);
+    }
 
 }

@@ -13,7 +13,7 @@ public interface SongService {
 
     Song findSong(long id);
 
-    Song updateSong(Song song);
+    Song updateSong(long id, Song song);
 
     void deleteById(long id);
 

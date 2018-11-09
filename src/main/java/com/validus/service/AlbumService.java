@@ -13,7 +13,7 @@ public interface AlbumService {
 
     Album findAlbum(long id);
 
-    Album updateAlbum(Album album);
+    Album updateAlbum( long id, Album album);
 
     void deleteById(long id);
 

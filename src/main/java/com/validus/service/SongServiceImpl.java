@@ -28,7 +28,9 @@ public class SongServiceImpl implements SongService {
     }
 
     @Override
-    public Song updateSong(Song song) {
+    public Song updateSong(long id, Song song) {
+        //TODO : Fetch & update.
+
         return songRepository.save(song);
     }
 

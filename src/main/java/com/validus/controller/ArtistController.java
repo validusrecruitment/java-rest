@@ -4,7 +4,6 @@ package com.validus.controller;
 import com.validus.domain.Artist;
 import com.validus.service.ArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,5 +24,6 @@ public class ArtistController {
     public List<Artist> fetchAll() {
         return artistService.findAll();
     }
+
 
 }

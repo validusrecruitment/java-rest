@@ -8,4 +8,14 @@ import java.util.List;
 @Component
 public interface AlbumService {
     List<Album> findAll();
+
+    Album createAlbum(Album album);
+
+    Album findAlbum(long id);
+
+    Album updateAlbum(Album album);
+
+    void deleteById(long id);
+
+    void delete(Album album);
 }

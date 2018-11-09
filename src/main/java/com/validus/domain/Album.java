@@ -1,13 +1,11 @@
 package com.validus.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -23,13 +21,11 @@ public class Album extends BaseModel{
     private int yearReleased;
 
     @ManyToMany(mappedBy = "albums")
-    //@JsonIgnore
-    @JsonBackReference
+    //@JsonManagedReference
     private Set<Artist> artists;
 
-    @JsonBackReference
     @OneToMany(mappedBy = "album")
+    //@JsonManagedReference
     private Set<Song> songs;
-
 
 }

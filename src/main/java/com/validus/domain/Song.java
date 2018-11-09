@@ -1,6 +1,8 @@
 package com.validus.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Entity
 @Table(name="song")
+@EqualsAndHashCode(exclude = "album")
 public class Song extends BaseModel{
 
     @Id
@@ -25,6 +28,7 @@ public class Song extends BaseModel{
 
     @ManyToOne
     @JoinColumn(name = "album_id")
+    @JsonBackReference
     private Album album;
 
 }

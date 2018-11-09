@@ -8,4 +8,14 @@ import java.util.List;
 @Component
 public interface SongService {
     List<Song> findAll();
+
+    Song createSong(Song song);
+
+    Song findSong(long id);
+
+    Song updateSong(Song song);
+
+    void deleteById(long id);
+
+    void delete(Song song);
 }

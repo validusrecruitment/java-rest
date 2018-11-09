@@ -16,4 +16,29 @@ public class SongServiceImpl implements SongService {
     public List<Song> findAll() {
         return (List<Song>)songRepository.findAll();
     }
+
+    @Override
+    public Song createSong(Song song) {
+        return songRepository.save(song);
+    }
+
+    @Override
+    public Song findSong(long id) {
+        return songRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Song updateSong(Song song) {
+        return songRepository.save(song);
+    }
+
+    @Override
+    public void deleteById(long id) {
+        songRepository.deleteById(id);
+    }
+
+    @Override
+    public void delete(Song song) {
+        songRepository.delete(song);
+    }
 }

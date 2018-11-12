@@ -13,6 +13,7 @@ public class ArtistServiceImpl implements ArtistService {
     @Autowired
     private ArtistRepository artistRepository;
 
+
     public List<Artist> findAll() {
         return (List<Artist>) artistRepository.findAll();
     }

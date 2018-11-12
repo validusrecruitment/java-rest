@@ -8,5 +8,5 @@ import java.util.List;
 
 
 public interface ArtistRepository extends CrudRepository<Artist, Long> {
-   List<Artist> findByName(@Param("name") String name);
+    List<Artist> findByName(@Param("name") String name);
 }

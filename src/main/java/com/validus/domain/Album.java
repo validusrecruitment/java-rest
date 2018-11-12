@@ -1,6 +1,5 @@
 package com.validus.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,8 +10,8 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="album")
-public class Album extends BaseModel{
+@Table(name = "album")
+public class Album extends BaseModel {
     @NotNull
     @Column
     private String name;
@@ -20,11 +19,13 @@ public class Album extends BaseModel{
     @Column(name = "year_released")
     private int yearReleased;
 
-    @ManyToMany(mappedBy = "albums")
     //@JsonManagedReference
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "artist_albums", joinColumns = @JoinColumn(name = "albums_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "artist_id", referencedColumnName = "id"))
     private Set<Artist> artists;
 
-    @OneToMany(mappedBy = "album")
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
     //@JsonManagedReference
     private Set<Song> songs;
 

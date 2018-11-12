@@ -1,16 +1,12 @@
 package com.validus.musicdb;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan(value = "com.validus")
-@EnableJpaRepositories(basePackages = "com.validus.repositories")
-@EntityScan(basePackages = "com.validus.domain")
+import com.validus.app.MusicdbApplication;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = MusicdbApplication.class)
 public class MusicDBTestConfig {
-
 }

@@ -20,7 +20,6 @@ public class DbConfig {
     private Environment env;
 
 
-
     @Bean
     public DataSource datasource() {
         final HikariDataSource dataSource = new HikariDataSource();
@@ -35,7 +34,7 @@ public class DbConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(datasource());
-        em.setPackagesToScan(new String[] { "com.validus.domain" });
+        em.setPackagesToScan(new String[]{"com.validus.domain"});
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(additionalProperties());
         return em;

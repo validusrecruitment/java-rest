@@ -14,7 +14,7 @@ public class SongServiceImpl implements SongService {
     private SongRepository songRepository;
 
     public List<Song> findAll() {
-        return (List<Song>)songRepository.findAll();
+        return (List<Song>) songRepository.findAll();
     }
 
     @Override

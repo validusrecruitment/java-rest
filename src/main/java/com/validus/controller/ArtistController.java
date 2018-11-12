@@ -20,7 +20,7 @@ public class ArtistController {
     private ArtistService artistService;
 
 
-    @RequestMapping( value = "/artists", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/artists", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Artist> fetchAll() {
         return artistService.findAll();
     }
